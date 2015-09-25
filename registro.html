@@ -1,0 +1,99 @@
+<html>
+	<head>
+	<script>
+	
+		function vervalores(){
+			
+			var nombre=document.getElementById("nombre").value;
+			var correo=document.getElementById("correo").value;
+			var contraseña=document.getElementById("contraseña").value;
+			var telefono=document.getElementById("telefono").value;
+			var especialidad=document.getElementById("especialidad");
+			//var tecno=document.getElementById("tecno").value;	
+			var error = "";
+			
+				if(nombre=="") 
+					//error += "\tTu nombre es obligatorio!\n";
+					{
+					alert("Tu nombre es obligatorio!");
+					return false;
+					}
+				if(correo=="")
+					//error += "\tTu correo es obligatorio!\n";
+					{
+					alert("Tu correo es obligatorio!");
+					return false;
+					}
+				if(contraseña=="")
+					//error += "\tTu contraseña es obligatorio!\n";
+					{
+					alert("Tu contraseña es obligatorio!");
+					return false;
+					}
+				if(telefono=="")
+					//error += "\tTu telefono es obligatorio!\n";
+					{
+					alert("Tu telefono es obligatorio!");
+					return false;
+					}
+					
+				if (contraseña.length < 6)
+					//error += "\tTu contraseña debe tener mas de 6 caracteres!\n";
+					{
+					alert("Tu contraseña debe tener al menos 6 caracteres!");
+					return false;
+					}
+					
+				if (!(/^[a-z]+[0-9]{3}@ikasle\.ehu\.(es|eus)$/.test(correo)))	
+					{
+					alert("Tu correo no cumple el formato!");
+					return false;
+					}
+								
+				if (!(/^\d{9}$/.test(telefono)))
+					//error += "\tTu telefono debe tener 9 DIGITOS!\n";
+					{
+					alert("Tu telefono debe tener 9 digitos!");
+					return false;
+					}				
+				
+				/*if(error != "")
+				{
+					alert("Validación del formulario:\n" + error);
+					return false;
+				}
+				else*/
+					return true;					
+			}
+			
+
+		</script> 
+		
+	</head>
+	<body>
+	 
+	<h3>Formulario</h3>
+	 
+	<form id="registro" id="formulario" name="registro" onSubmit="return vervalores()"> 		
+		<p>Nombre y apellidos(*):</p>
+		<input type="text" id="nombre" name="nombre" value=""/>
+		<p>Direccion de correo(*):</p>
+		<input type="text" id="correo" name="correo" value=""/>
+		<p>Password(*):</p>
+		<input type="password" id="contraseña" name="contraseña" value=""/>
+		<p>Numero de telefono(*):</p>
+		<input type="text" id="telefono" name="telefono" value=""/>
+		<p>Especialidad(*):</p>
+		<input type="radio" id="especialidad" name="especialidad" value="IS" checked="true">Ingenieria de Software </input>
+		</br>
+		<input type="radio" id="especialidad" name="especialidad" value="IC">Ingenieria de Computadores </input>
+		</br>
+		<input type="radio" id="especialidad" name="especialidad" value="C">Computacion </input>
+		<p>Tecnologias y herramientas en las que esta interesado:</p>
+		<textarea id="tecno" name="tecno" form="registro">Enter text here...</textarea>
+		</br></br> 
+	  <input type="submit" value="Enviar" />
+	</form>
+	 
+	</body>
+</html>
